@@ -11,7 +11,7 @@ function watCreate($im)
 {
     $pathImg = $im;
     $pathCopy = preg_replace('#(.(?i)(jpg|jpeg|png))$#', 'copy$1', $im);
-    $pic = explode('waterMark/', $im);
+    $pic = explode('waterMark2/', $im);
 
 
     if (file_exists($pathCopy)) {
@@ -63,7 +63,7 @@ function watUpdate($im)
 {
     $pathImg = $im;
     $pathCopy = preg_replace('#(.(?i)(jpg|jpeg|png))$#', 'copy$1', $im);
-    $pic = explode('waterMark/', $im);
+    $pic = explode('waterMark2/', $im);
 
 
     if (!file_exists($pathCopy)) {
@@ -111,7 +111,7 @@ function watRemove($im)
     // $pathImg = $_SERVER['DOCUMENT_ROOT'].'/'.$im;
     $pathImg = $im;
     $pathCopy = preg_replace('#(.(?i)(jpg|jpeg|png))$#', 'copy$1', $im);
-    $pic = explode('waterMark/', $im);
+    $pic = explode('waterMark2/', $im);
 
     if (!file_exists($pathCopy)) {
         funText($im);
@@ -157,7 +157,7 @@ function findFil($act, $fil)
             $path = $dir . '/' . $val;
             if (is_file($path)) {
                 if (!preg_match('#(copy.(?i)(jpg|jpeg|png))$#', $path) && preg_match('#(.(?i)(jpg|jpeg|png))$#', $path) && preg_match('#' . $fil . '(.(?i)(jpg|jpeg|png))$#', $path)) {
-                    $pic = explode('waterMark/', $path);
+                    $pic = explode('waterMark2/', $path);
                     if ($act == 'create') {
                         watCreate($path);
                     } elseif ($act == 'remove') {
